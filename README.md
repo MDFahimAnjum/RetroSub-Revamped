@@ -1,9 +1,12 @@
-# Single-step Retrosynthesis Prediction by Leveraging Commonly Preserved Substructures
+# Research Project
 
+## Single-step Retrosynthesis Prediction by Leveraging Commonly Preserved Substructures
+
+Original Nat Comm Paper [Here](https://doi.org/10.1038/s41467-023-38851-5) 
 
 ## Overview
 
-Our work consists of the following modules: 
+The work consists of the following modules: 
 
 * Reaction retrieval
 
@@ -19,16 +22,24 @@ Our work consists of the following modules:
 
 
 ## Setup 
-    # clone repo
-    git clone https://github.com/fangleigit/RetroSub
-    cd RetroSub/
+    # clone repo. If you are in windows, best if you clone in the system drive (C:)
+    git clone https://github.com/MDFahimAnjum/RetroSub_Research
+    cd RetroSub_Research/
+    # In windows, open git bash and run:
     git submodule update --init --recursive
+
+    # If successful, you will see:
+    # Submodule path 'MolecularTransformer': checked out 'aeb3...'
+    # Submodule path 'RetrievalModel': checked out '1c0...'
+
 
     # setup
     # fix typo, and change some codes to run the submodules with recent pytorch version.
+    # In windows, open git bash and run following. If you try the following in cmd or powershell, you will get errors due to path notations
     bash scripts/step0_fix_submodule.sh 
 
     # conda environment for reaction retrieval
+    # In windows, open anaconda prompt in the root directory
     conda create -n retrieval python=3.6
     conda run -n retrieval pip install -r RetrievalModel/requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
 
