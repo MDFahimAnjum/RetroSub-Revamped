@@ -37,7 +37,6 @@ The work consists of the following modules:
         conda activate retrieval
         #conda run -n retrieval pip install -r RetrievalModel/requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
         pip install torch sacrebleu transformers==2.11.0 jsonlines regex scikit-learn scipy
-        conda install anaconda::swig
         conda install -c pytorch faiss-cpu
 
 - conda environment for substructure extraction, seq2seq model inference, ranking model training. for windows, open anaconda prompt and cd to the root folder
