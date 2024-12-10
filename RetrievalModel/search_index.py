@@ -35,12 +35,12 @@ def main(args):
     logging.basicConfig(format = '%(asctime)s - %(levelname)s - %(name)s - %(message)s',
             datefmt = '%m/%d/%Y %H:%M:%S', level = logging.INFO)
     logger.info('Loading model...')
-    device = torch.device('cuda', 0)
+    # device = torch.device('cuda', 0)
     
     vocab = Vocab(args.vocab_path, 0, [BOS, EOS])
     model_args = torch.load(args.args_path)
     model = ProjEncoder.from_pretrained(vocab, model_args, args.ckpt_path)
-    model.to(device)
+    # model.to(device)
     
     logger.info('Collecting data...')
     
@@ -64,9 +64,9 @@ def main(args):
 
     mips = MIPS.from_built(args.index_path, nprobe=args.nprobe)
     max_norm = torch.load(os.path.dirname(args.index_path)+'/max_norm.pt')
-    mips.to_gpu() 
-    model.cuda()
-    model = torch.nn.DataParallel(model, device_ids=list(range(torch.cuda.device_count())))
+    # mips.to_gpu() 
+    # model.cuda()
+    # model = torch.nn.DataParallel(model, device_ids=list(range(torch.cuda.device_count())))
     model.eval()
 
 
@@ -75,7 +75,7 @@ def main(args):
     with open(args.output_file, 'w') as fo:
         for batch in asynchronous_load(data_loader):
             with torch.no_grad():
-                q = move_to_device(batch, torch.device('cuda')).t()
+                q = torch.from_numpy(batch).contiguous().t() 
                 bsz = q.size(0)
                 vecsq = model(q, batch_first=True).detach().cpu().numpy()
             vecsq = augment_query(vecsq)

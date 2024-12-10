@@ -22,43 +22,60 @@ The work consists of the following modules:
 
 
 ## Setup 
-    # clone repo. If you are in windows, best if you clone in the system drive (C:)
-    git clone https://github.com/MDFahimAnjum/RetroSub_Research
-    cd RetroSub_Research/
-    # In windows, open git bash and run:
-    git submodule update --init --recursive
+- clone repo. If you are in windows, best if you clone in the system drive (C:)
 
-    # If successful, you will see:
-    # Submodule path 'MolecularTransformer': checked out 'aeb3...'
-    # Submodule path 'RetrievalModel': checked out '1c0...'
+        git clone https://github.com/MDFahimAnjum/RetroSub_Research
 
 
-    # setup
-    # fix typo, and change some codes to run the submodules with recent pytorch version.
-    # In windows, open git bash and run following. If you try the following in cmd or powershell, you will get errors due to path notations
-    bash scripts/step0_fix_submodule.sh 
+- fix typo, and change some codes to run the submodules with recent pytorch version. In windows, open git bash and run following. If you try the following in cmd or powershell, you will get errors due to path notations
 
-    # conda environment for reaction retrieval
-    # In windows, open anaconda prompt in the root directory
-    conda create -n retrieval python=3.6
-    conda run -n retrieval pip install -r RetrievalModel/requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
+        bash scripts/step0_fix_submodule.sh 
 
-    # conda environment for substructure extraction, seq2seq model inference, ranking model training.
-    conda create -n retrosub -c pytorch -c conda-forge -y rdkit=2022.03.1 tqdm func_timeout pytorch=0.4.1 future six tqdm pandas torchvision gputil notebook python=3.7 
-    cd MolecularTransformer
-    conda run -n retrosub pip install torchtext==0.3.1 
-    conda run -n retrosub pip install -e .
-    cd -
+- conda environment for reaction retrieval. In windows, open anaconda prompt in the root directory
 
-    # conda environment for model training (requires python 3.5)
-    cd MolecularTransformer
-    conda create -n mol_transformer python=3.5 future six tqdm pandas pytorch=0.4.1 torchvision -c pytorch
-    conda run -n mol_transformer pip install torchtext==0.3.1
-    conda run -n mol_transformer pip install -e . 
-    cd -
+        conda create -n retrieval python=3.6
+        conda activate retrieval
+        #conda run -n retrieval pip install -r RetrievalModel/requirements.txt -f https://download.pytorch.org/whl/torch_stable.html
+        pip install torch sacrebleu transformers==2.11.0 jsonlines regex scikit-learn scipy
+        conda install anaconda::swig
+        conda install -c pytorch faiss-cpu
+
+- conda environment for substructure extraction, seq2seq model inference, ranking model training. for windows, open anaconda prompt and cd to the root folder
+
+        conda create -n retrosub python=3.7 -y
+        conda activate retrosub
+        conda install -c pytorch pytorch torchvision -y #Alternatively: pip install torch torchvision
+        pip install rdkit-pypi tqdm func-timeout future six pandas gputil notebook
+        cd MolecularTransformer
+        conda run -n retrosub pip install torchtext==0.3.1 
+        conda run -n retrosub pip install -e .
+
+- conda environment for model training (requires python 3.5)
+
+        cd MolecularTransformer
+        conda create -n mol_transformer python=3.5 -y
+        conda activate mol_transformer
+        conda install -c pytorch pytorch torchvision -y
+        pip install future six tqdm pandas
+        conda run -n mol_transformer pip install torchtext==0.3.1
+        conda run -n mol_transformer pip install -e . 
 
 
+## Download models and data 
+- Download processed data, models and results [here](https://figshare.com/ndownloader/files/41144306).
+- Extract in root folder
+
+## Demo run
+
+- Change code of submodule (reaction retrieval) to run on CPU in the code folder.
+
+        bash scripts/step0_fix_demo.sh 
     
+
+- Run [demo.ipynb](demo.ipynb), and try your own cases.
+
+        conda activate retrosub && jupyter notebook
+
 ## Retrosynthesis on USPTO_full
 We provide our [processed data, trained models, and predictions on the test data](https://figshare.com/ndownloader/files/41144306) as references. Reproducing the paper results with this would be quite easy (the following steps 0-6 can be skipped).
     
