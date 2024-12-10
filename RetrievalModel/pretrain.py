@@ -166,12 +166,12 @@ def validate(model, dev_data, device):
         r = model.response_encoder(batch['tgt_tokens'])
         q_list.append(q)
         r_list.append(r)
-    q = torch.cat(q_list, dim=0)
-    r = torch.cat(r_list, dim=0)
+    q = torch.cat(q_list, dim=0).to("cpu").to("cpu").to("cpu").to("cpu").to("cpu").to("cpu")
+    r = torch.cat(r_list, dim=0).to("cpu").to("cpu").to("cpu").to("cpu").to("cpu").to("cpu")
 
     bsz = q.size(0)
     scores = torch.mm(q, r.t()) # bsz x bsz
-    gold = torch.arange(bsz, device=scores.device)
+    gold = torch.arange(bsz, device="cpu")
     _, pred = torch.max(scores, -1)
     acc = torch.sum(torch.eq(gold, pred).float()) / bsz
     return acc

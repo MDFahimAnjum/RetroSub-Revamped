@@ -489,8 +489,8 @@ def build_dataset_iter(datasets, fields, opt, is_train=True):
     to iterate over. We implement simple ordered iterator strategy here,
     but more sophisticated strategy like curriculum learning is ok too.
     """
-    batch_size = opt.batch_size if is_train else opt.valid_batch_size
-    if is_train and opt.batch_type == "tokens":
+    batch_size = opt.batch_size
+    if opt.batch_type == "tokens":
         def batch_size_fn(new, count, sofar):
             """
             In token batching scheme, the number of sequences is limited

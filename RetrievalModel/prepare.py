@@ -31,7 +31,7 @@ def parse_config():
     parser.add_argument('--vocab_tgt', type=str)
     parser.add_argument('--ratio', type=float, default=1.5)
     parser.add_argument('--min_len', type=int, default=1)
-    parser.add_argument('--max_len', type=str, default=250)
+    parser.add_argument('--max_len', type=int, default=250)
     return parser.parse_args()
 
 if __name__ == "__main__":
