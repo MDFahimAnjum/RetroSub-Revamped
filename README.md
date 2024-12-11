@@ -4,6 +4,22 @@
 
 Original Nat Comm Paper [Here](https://doi.org/10.1038/s41467-023-38851-5) 
 
+
+## What's New in This Fork  
+
+This fork introduces several enhancements to improve compatibility, usability, and functionality:  
+
+- **Compatibility Fixes**: Resolved package installation issues for seamless setup in Windows.  
+- **Version Management**: Fixed package version conflicts found during installation and setup.  
+- **Enhanced Documentation**: Added clear, step-by-step instructions for easy onboarding.  
+- **Windows Support**: Verified compatibility of the demo run with Windows 11 using Anaconda/Conda.  
+- **Improved Demo Workflow**:  
+  - Organized the original demo run into three logical parts for better readability and understanding.  
+  - Added essential scripts and functionalities tailored for Windows environments.  
+- **Submodule Issues Resolved**: Fixed issues in submodules that were causing errors during the demo run.  
+- **Integrated Submodules into Main Repository**: Consolidated submodules into the primary repository for simpler management.  
+
+
 ## Overview
 
 The work consists of the following modules: 
@@ -46,7 +62,7 @@ The work consists of the following modules:
         conda install -c pytorch pytorch torchvision -y #Alternatively: pip install torch torchvision
         pip install rdkit-pypi tqdm func-timeout future six pandas gputil notebook
         cd MolecularTransformer
-        conda run -n retrosub pip install torchtext==0.3.1 
+        pip install torchtext==0.3.1 
         conda run -n retrosub pip install -e .
 
 - conda environment for model training (requires python 3.5)
@@ -56,7 +72,7 @@ The work consists of the following modules:
         conda activate mol_transformer
         conda install -c pytorch pytorch torchvision -y
         pip install future six tqdm pandas
-        conda run -n mol_transformer pip install torchtext==0.3.1
+        pip install torchtext==0.3.1
         conda run -n mol_transformer pip install -e . 
 
 
@@ -64,16 +80,17 @@ The work consists of the following modules:
 - Download processed data, models and results [here](https://figshare.com/ndownloader/files/41144306).
 - Extract in root folder
 
-## Demo run
+## Prepare Codebase for Demo run
 
 - Change code of submodule (reaction retrieval) to run on CPU in the code folder.
 
         bash scripts/step0_fix_demo.sh 
     
+## Demo Run 
+- Run [demo_part1.ipynb](demo_part1.ipynb).
+- Run [./RetrievalModel/demo_part2.ipynb](/RetrievalModel/demo_part2.ipynb).
+- Run [demo_part3.ipynb](demo_part3.ipynb).
 
-- Run [demo.ipynb](demo.ipynb), and try your own cases.
-
-        conda activate retrosub && jupyter notebook
 
 ## Retrosynthesis on USPTO_full
 We provide our [processed data, trained models, and predictions on the test data](https://figshare.com/ndownloader/files/41144306) as references. Reproducing the paper results with this would be quite easy (the following steps 0-6 can be skipped).
