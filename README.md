@@ -1,8 +1,8 @@
 # Research Project
 
 ## Single-step Retrosynthesis Prediction by Leveraging Commonly Preserved Substructures
-
-Original Nat Comm Paper [Here](https://doi.org/10.1038/s41467-023-38851-5) 
+- This is a fork of the original [codebase](https://github.com/fangleigit/RetroSub)
+- Original Nat Comm Paper [Here](https://doi.org/10.1038/s41467-023-38851-5) 
 
 
 ## What's New in This Fork  
@@ -87,9 +87,9 @@ The work consists of the following modules:
         bash scripts/step0_fix_demo.sh 
     
 ## Demo Run 
-- Run [demo_part1.ipynb](demo_part1.ipynb).
-- Run [./RetrievalModel/demo_part2.ipynb](/RetrievalModel/demo_part2.ipynb).
-- Run [demo_part3.ipynb](demo_part3.ipynb).
+1. Run [demo_part1.ipynb](demo_part1.ipynb).
+2. Run [./RetrievalModel/demo_part2.ipynb](/RetrievalModel/demo_part2.ipynb).
+3. Run [demo_part3.ipynb](demo_part3.ipynb).
 
 
 ## Retrosynthesis on USPTO_full
