@@ -88,7 +88,7 @@ The work consists of the following modules:
     
 ## Demo Run 
 1. Run [demo_part1.ipynb](demo_part1.ipynb).
-2. Run [./RetrievalModel/demo_part2.ipynb](/RetrievalModel/demo_part2.ipynb).
+2. Run [./RetrievalModel/demo_part2.ipynb](RetrievalModel/demo_part2.ipynb).
 3. Run [demo_part3.ipynb](demo_part3.ipynb).
 
 
@@ -116,8 +116,6 @@ We provide our [processed data, trained models, and predictions on the test data
     └── ...
 
     # Go to Step 7 to reproduce the results.
-
-We also provide a demo to run our model on the user-defined input at [demo.ipynb](demo.ipynb). Please refer to [README_Demo.md](README_Demo.md) for details.
 
 ### Step 0: Donwload and preprocess the data
 

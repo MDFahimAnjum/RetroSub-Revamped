@@ -1,4 +1,6 @@
-# View and try the demos
+# This section is now partially deprecated. Please refer to the main [README.md](README.md) for the most up-to-date guide.
+
+## View and try the demos
 We provide two options to view and try our demo.
 ## Option 1: docker (recommended).
 Note: This container was tested on Ubuntu [CPU_only, P100, V100] and Windows 11 with [Docker Desktop](https://www.docker.com/products/docker-desktop/) [CPU_only, P100, V100, GeForce930M (laptop GPU)]. 
