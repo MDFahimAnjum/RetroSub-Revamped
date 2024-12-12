@@ -19,8 +19,14 @@ This fork introduces several enhancements to improve compatibility, usability, a
 - **Submodule Issues Resolved**: Fixed issues in submodules that were causing errors during the demo run.  
 - **Integrated Submodules into Main Repository**: Consolidated submodules into the primary repository for simpler management.  
 
+## Notable External Libraries Utilized
 
-## Overview
+- [Molecule Transformer](https://github.com/pschwllr/MolecularTransformer) for substructure-level sequence-to-sequence learning _[Now directly added to the repository]_
+- [Faiss](https://github.com/facebookresearch/faiss) by Facebook research for efficient similarity search and clustering of dense vectors for all the reactants
+- [RDKit](https://github.com/rdkit/rdkit/tree/Release_2022_03_1) to extract common substructures
+- [RetrievalModel](https://github.com/jcyk/copyisallyouneed) to produce a list of candidates similar to the given query from a large collection of data _[Now directly added to the repository]_
+
+## Overview of the Methodology
 
 The work consists of the following modules: 
 
