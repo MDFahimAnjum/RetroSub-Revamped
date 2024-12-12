@@ -2,7 +2,7 @@
 
 ## Single-step Retrosynthesis Prediction by Leveraging Commonly Preserved Substructures
 - This is a fork of the original [codebase](https://github.com/fangleigit/RetroSub)
-- Original Nat Comm Paper [Here](https://doi.org/10.1038/s41467-023-38851-5) 
+- Original Nat Comm Paper [Here](https://doi.org/10.1038/s41467-023-37969-w) 
 
 
 ## What's New in This Fork  
