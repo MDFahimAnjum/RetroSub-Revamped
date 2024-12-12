@@ -1,4 +1,4 @@
-# Research Project
+# RetroSub-Revamped
 
 ## Single-step Retrosynthesis Prediction by Leveraging Commonly Preserved Substructures
 - This is a fork of the original [codebase](https://github.com/fangleigit/RetroSub)
