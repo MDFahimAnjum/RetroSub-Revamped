@@ -39,17 +39,17 @@ Your input is invaluable in making this repository even better. Let's build toge
 
 The work consists of the following modules: 
 
-* Reaction retrieval
+- **Reaction retrieval**
 
-  The reaction retrieval module aims to retrieve candidate reactants on train and val data for a given product molecule. The submodule `RetrievalModel`  implements the dual encoder introduced in the paper.
+  This module retrieves similar reactions, given a product molecule as a query. It uses a learnable cross-lingual memory retriever to align reactants and products in high-dimensional vector space. For this a Dual encoder ([RetrievalModel](https://github.com/jcyk/copyisallyouneed)) and [Faiss](https://github.com/facebookresearch/faiss) are utilized. The submodule `RetrievalModel`  implements the dual encoder introduced in the paper.
 
-* Substructure extraction
+- **Substructure extraction**
 
-  We extract the commonly preserved substructures from the product molecule and the retrieved candidates based on molecular fingerprints. The `sub*.py` implement the extraction process.
+  Extract the common substructures from the product molecule and the top cross-aligned candidates, based on molecular fingerprints. These substructures provide a reaction-level, fragment-to-fragment mapping between reactants and products. For this, [RDKit](https://github.com/rdkit/rdkit/tree/Release_2022_03_1) is utilized. The `sub*.py` implement the extraction process.
 
-* Substructure-level sequence-to-sequence Learning
+- **Substructure-level sequence-to-sequence Learning**
 
-  We use the submodule `MolecularTransformer` for sequence to sequence learning.
+  We convert the original token-level sequence to a substructure-level sequence. The new input sequence includes the SMILES strings of the substructures followed by the SMILES strings of other fragments with virtual number labels. The output sequences are the fragments with virtual numbers. The virtual numbers are used to indicate the bond breaking/connecting site. For this a transformer architecture ([Molecule Transformer](https://github.com/pschwllr/MolecularTransformer)) is utilized. We use the submodule `MolecularTransformer` for sequence to sequence learning.
 
 
 ## Setup 
