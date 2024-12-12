@@ -1,7 +1,7 @@
 # RetroSub-Revamped
 
 ## Single-step Retrosynthesis Prediction by Leveraging Commonly Preserved Substructures
-- This is a fork of the original [codebase](https://github.com/fangleigit/RetroSub)
+- This is a fork of the original [repository](https://github.com/fangleigit/RetroSub)
 - Original Nat Comm Paper [Here](https://doi.org/10.1038/s41467-023-37969-w) 
 
 
@@ -25,6 +25,15 @@ This fork introduces several enhancements to improve compatibility, usability, a
 - [Faiss](https://github.com/facebookresearch/faiss) by Facebook research for efficient similarity search and clustering of dense vectors for all the reactants
 - [RDKit](https://github.com/rdkit/rdkit/tree/Release_2022_03_1) to extract common substructures
 - [RetrievalModel](https://github.com/jcyk/copyisallyouneed) to produce a list of candidates similar to the given query from a large collection of data _[Now directly added to the repository]_
+
+
+## Join the Discussion  
+Have questions, suggestions, or issues? Head over to the [Discussions](https://github.com/MDFahimAnjum/RetroSub-Revamped/discussions) section to share your thoughts!  
+- Ask questions or clarify doubts.  
+- Propose new features or improvements.  
+- Collaborate with the community to resolve issues.  
+
+Your input is invaluable in making this repository even better. Let's build together!  
 
 ## Overview of the Methodology
 
